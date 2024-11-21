@@ -34,10 +34,14 @@ def load_and_visualize_pcd(file_path, point_size=1.0):
     print(f"Ground points: {len(ground.points)}")
     print(f"Non-ground points: {len(non_ground.points)}")
 
-    # 시각화 설정
+   # Voxel Downsampling
+    downsampled_pcd = non_ground.voxel_down_sample(voxel_size=0.05)
+    print(f"After downsampling: {len(downsampled_pcd.points)} points remain.")
+
+    # Step 6: Visualization
     vis = o3d.visualization.Visualizer()
     vis.create_window()
-    vis.add_geometry(non_ground)
+    vis.add_geometry(downsampled_pcd)
     vis.get_render_option().point_size = point_size
     vis.run()
     vis.destroy_window()
