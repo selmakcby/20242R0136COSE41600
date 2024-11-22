@@ -84,12 +84,12 @@ def cluster_and_save_largest_purple(cleaned_pcd, eps=0.3, min_points=10):
     # Save points to CSV
     # this points will be used later as reference to other datasets 
     bbox_points = np.asarray(cleaned_pcd.points)[selected_bbox.get_point_indices_within_bounding_box(cleaned_pcd.points)]
-    np.savetxt("largest_purple_cluster.csv", bbox_points, delimiter=",", header="x,y,z", comments="")
+    np.savetxt("scene_1_boxed_cluster_points.csv", bbox_points, delimiter=",", header="x,y,z", comments="")
 
     selected_bbox.color = (1, 0, 0)  # Red bounding box
     return cleaned_pcd, [selected_bbox]
 
-# 포인트 클라우드 및 바운딩 박스를 시각화하는 함수
+# Visualization
 def visualize_with_bounding_boxes(pcd, bounding_boxes, window_name="Clusters After Noise Removal", point_size=1.0):
     vis = o3d.visualization.Visualizer()
     vis.create_window(window_name=window_name)
