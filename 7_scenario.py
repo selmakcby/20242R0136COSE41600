@@ -8,9 +8,7 @@ from scipy.spatial import distance
 
 # Step 1: Load and Clean Point Cloud
 def clean_point_cloud(file_path):
-    """
-    Load, clean, and downsample point cloud data.
-    """
+    
     pcd = o3d.io.read_point_cloud(file_path)
     print(f"Original point cloud has {len(pcd.points)} points.")
 
@@ -23,7 +21,7 @@ def clean_point_cloud(file_path):
     print(f"After Radius Outlier Removal: {len(pcd.points)} points remain.")
 
     # Downsampling (Voxel Grid)
-    voxel_size = 0.05  # Adjust based on data scale
+    voxel_size = 0.05 
     pcd = pcd.voxel_down_sample(voxel_size=voxel_size)
     print(f"After Downsampling: {len(pcd.points)} points remain.")
 
