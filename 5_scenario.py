@@ -90,14 +90,14 @@ def cluster_and_save_colored_clusters(cleaned_pcd, eps=0.3, min_points=10):
         yellow_points = np.asarray(cleaned_pcd.points)[
             yellow_clusters[0][2].get_point_indices_within_bounding_box(cleaned_pcd.points)
         ]
-        np.savetxt("yellow_cluster.csv", yellow_points, delimiter=",", header="x,y,z", comments="")
+        np.savetxt("scenario_5_yellow_cluster.csv", yellow_points, delimiter=",", header="x,y,z", comments="")
         print("Saved yellow cluster points to 'yellow_cluster.csv'.")
 
     if turquoise_clusters:
         turquoise_points = np.asarray(cleaned_pcd.points)[
             turquoise_clusters[0][2].get_point_indices_within_bounding_box(cleaned_pcd.points)
         ]
-        np.savetxt("turquoise_cluster.csv", turquoise_points, delimiter=",", header="x,y,z", comments="")
+        np.savetxt("scenario_5_turquoise_cluster.csv", turquoise_points, delimiter=",", header="x,y,z", comments="")
         print("Saved turquoise cluster points to 'turquoise_cluster.csv'.")
 
     # Visualization
