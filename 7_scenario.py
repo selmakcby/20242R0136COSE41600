@@ -6,7 +6,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.spatial import distance
 
-# Step 1: Load and Clean Point Cloud
+# Clenaing point cloud 
+# Noise removing & Dwonsampling 
 def clean_point_cloud(file_path):
     
     pcd = o3d.io.read_point_cloud(file_path)
