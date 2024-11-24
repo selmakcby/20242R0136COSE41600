@@ -77,7 +77,7 @@ def detect_largest_similar_cluster(cleaned_pcd, eps=0.3, min_points=10,
         density_match = density_range[0] <= cluster_features['density'] <= density_range[1]
         height_match = height_range[0] <= cluster_features['bounding_box'][2] <= height_range[1] 
 
-        #Printing hthe mathed pints features 
+        #Printing the mathed points features 
         if width_height_match and density_match and height_match:
             similar_clusters.append((i, cluster_pcd, cluster_features, len(points)))
             print(f"Cluster {i} matched: {cluster_features} with {len(points)} points") 
@@ -116,7 +116,7 @@ def visualize_with_clusters(cleaned_pcd, clusters):
 
     """
 
-file_path = "/Users/selma/Downloads/COSE416_HW1_tutorial/data/07_straight_walk/pcd/pcd_000443.pcd"
+file_path = "07_straight_walk/pcd/pcd_000443.pcd"
 cleaned_pcd = clean_point_cloud(file_path)
 
 # detecting the largest cluster that matches the reference features and realistic human dimensions
