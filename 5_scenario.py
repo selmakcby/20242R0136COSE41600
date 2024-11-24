@@ -91,14 +91,12 @@ def cluster_and_save_colored_clusters(cleaned_pcd, eps=0.3, min_points=10):
             yellow_clusters[0][2].get_point_indices_within_bounding_box(cleaned_pcd.points)
         ]
         np.savetxt("scenario_5_yellow_cluster.csv", yellow_points, delimiter=",", header="x,y,z", comments="")
-        print("Saved yellow cluster points to 'yellow_cluster.csv'.")
 
     if turquoise_clusters:
         turquoise_points = np.asarray(cleaned_pcd.points)[
             turquoise_clusters[0][2].get_point_indices_within_bounding_box(cleaned_pcd.points)
         ]
         np.savetxt("scenario_5_turquoise_cluster.csv", turquoise_points, delimiter=",", header="x,y,z", comments="")
-        print("Saved turquoise cluster points to 'turquoise_cluster.csv'.")
 
     # Visualization
     bboxes = []
@@ -123,7 +121,7 @@ def visualize_with_bounding_boxes(pcd, bounding_boxes, window_name="Clusters wit
     vis.run()
     vis.destroy_window()
 
-file_path = "/Users/selma/Downloads/COSE416_HW1_tutorial/data/05_straight_duck_walk/pcd/pcd_000577.pcd"
+file_path = "05_straight_duck_walk/pcd/pcd_000577.pcd"
 cleaned_pcd = clean_point_cloud(file_path)
 cleaned_pcd, bboxes = cluster_and_save_colored_clusters(cleaned_pcd, eps=0.3, min_points=10)
 visualize_with_bounding_boxes(cleaned_pcd, bboxes, point_size=2.0)
