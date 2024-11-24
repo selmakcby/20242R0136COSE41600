@@ -19,7 +19,7 @@ def clean_point_cloud(file_path):
 
     return pcd
 
-# Step 2: Clustering and Detect Clusters by Color
+# Clustering and Detecting Clusters by Color
 def cluster_and_save_colored_clusters(cleaned_pcd, eps=0.3, min_points=10):
      #  DBSCAN clustering
     print(f"Clustering with eps={eps}, min_points={min_points}")
@@ -106,7 +106,7 @@ def visualize_with_bounding_boxes(pcd, bounding_boxes, window_name="Clusters Aft
     vis.destroy_window()
 
 # Main Workflow 06_straight_crawl/pcd/pcd_000774.pcd
-file_path = "/Users/selma/Downloads/COSE416_HW1_tutorial/data/03_straight_crawl/pcd/pcd_001251.pcd"
+file_path = "03_straight_crawl/pcd/pcd_001251.pcd"
 cleaned_pcd = clean_point_cloud(file_path)
 cleaned_pcd, bboxes = cluster_and_save_colored_clusters(cleaned_pcd, eps=0.3, min_points=10)
 visualize_with_bounding_boxes(cleaned_pcd, bboxes, point_size=2.0)
