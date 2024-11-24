@@ -34,7 +34,7 @@ def extract_features(points):
         'density': density,
     }
 
-# Step 3: Clustering and Detect Clusters Based on References
+# Clustering and Detect Clusters Based on References
 def detect_and_box_clusters(cleaned_pcd, references, eps=0.3, min_points=10):
        #  DBSCAN clustering
     print(f"Clustering with eps={eps}, min_points={min_points}")
@@ -132,7 +132,7 @@ def visualize_with_bounding_boxes(pcd, bounding_boxes, window_name="Cluster Boun
     vis.run()
     vis.destroy_window()
 
-# Reference Features
+# Reference Features from scene 5
 references = {
     (0, 0, 1): {  # Turquoise cluster with yellow-like features
         'bounding_box': np.array([0.32850933, 0.59455872, 0.40550107]),
@@ -146,7 +146,7 @@ references = {
     }
 }
 
-file_path = "/Users/selma/Downloads/COSE416_HW1_tutorial/data/04_zigzag_walk/pcd/pcd_000364.pcd"
+file_path = "04_zigzag_walk/pcd/pcd_000364.pcd"
 cleaned_pcd = clean_point_cloud(file_path)
 cleaned_pcd, bboxes = detect_and_box_clusters(cleaned_pcd, references, eps=0.3, min_points=10)
 visualize_with_bounding_boxes(cleaned_pcd, bboxes, point_size=2.0)
