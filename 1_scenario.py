@@ -38,7 +38,9 @@ def cluster_and_save_largest_purple(cleaned_pcd, eps=0.3, min_points=10):
         normalized_labels = labels / (max_label + 1)  
     else:
         normalized_labels = labels 
+        
     colors = cmap(normalized_labels)  # assign labeled clusters to colors 
+
 
     #   noise points detected by DBSCAN clustering (labels < 0) setting to black
     colors[labels < 0] = [0, 0, 0, 1]  
@@ -100,7 +102,7 @@ def visualize_with_bounding_boxes(pcd, bounding_boxes, window_name="Clusters Aft
     vis.run()
     vis.destroy_window()
 
-file_path = "/Users/selma/Downloads/COSE416_HW1_tutorial/data/01_straight_walk/pcd/pcd_000288.pcd"
+file_path = "01_straight_walk/pcd/pcd_000288.pcd"
 cleaned_pcd = clean_point_cloud(file_path)
 cleaned_pcd, bboxes = cluster_and_save_largest_purple(cleaned_pcd, eps=0.3, min_points=10)
 visualize_with_bounding_boxes(cleaned_pcd, bboxes, point_size=2.0)
