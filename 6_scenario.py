@@ -92,7 +92,7 @@ def visualize_with_bounding_boxes(pcd, bounding_boxes, window_name="Clusters Aft
     vis.destroy_window()
 
 # Main Workflow
-file_path = "/Users/selma/Downloads/COSE416_HW1_tutorial/data/06_straight_crawl/pcd/pcd_000774.pcd"
+file_path = "06_straight_crawl/pcd/pcd_000774.pcd"
 cleaned_pcd = clean_point_cloud(file_path)
 cleaned_pcd, bboxes = cluster_and_save_yellow_clusters(cleaned_pcd, eps=0.3, min_points=10, height_range=(0.5, 1.0))
 visualize_with_bounding_boxes(cleaned_pcd, bboxes, point_size=2.0)
